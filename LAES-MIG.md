@@ -104,3 +104,6 @@ Produktbilleder og eksisterende logoer er billedfiler med deres egne farver.
 Jeres originale logo er gemt som images/blume-logo.png og bruges i header og footer
 på alle tre sider. Header-logoet linker til forsiden. Brandnavn og sidetitler er
 opdateret til BLUME. Logoets format og farver bevares, og størrelsen tilpasses mobil.
+
+Rabatmærker på produktkort og detaljesider bruger Warm Cocoa (#4A3432) som
+baggrund og Lavender Mist (#DCD3E8) som tekstfarve.

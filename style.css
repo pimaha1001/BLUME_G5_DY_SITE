@@ -1486,3 +1486,10 @@ button:focus-visible {
 @media (max-width: 500px) {
   .header .logo, .footer .logo { width: 180px; }
 }
+
+/* Rabatmærker: kaffebrun baggrund med lavendelfarvet tekst. */
+.product.discount .discount_tag,
+.product-detail-image .detail-sale-tag {
+  background-color: var(--color-warm-cocoa);
+  color: var(--color-lavender-mist);
+}
