@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>BLUME – Beauty, Fragrances og Natural</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+
+        <a class="logo_wrap" href="index.html" aria-label="BLUME – forside">
+            <img src="images/blume-logo.png" class="logo" alt="BLUME">
+            
+        </a>
+        <button class="burger" aria-label="Åbn menu">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html" class="active">Frontpage</a></li>
+                <li><a href="productlist.html">Products</a></li>
+                
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+
+        <!-- KORT OM SITE -->
+
+        <section class="kortomsite">
+
+
+            <!-- TEKST -->
+
+            <div class="kortomsite-content">
+
+                <h1>Beauty & Fragrances</h1>
+
+                <h2>Find makeup, parfumer og naturprodukter
+                </h2>
+
+            </div>
+
+        </section>
+
+        <section class="category-section">
+            <h2>UDFORSK BEAUTY, FRAGRANCES OG NATURAL</h2>
+
+            <div class="category-grid" id="category">
+                <!-- Kategorier fra API'et kommer ind her -->
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer">
+        <div class="footer-grid">
+
+            <div>
+                <h3>Finding your way</h3>
+                <ul>
+                    <li><a href="index.html">Frontpage</a></li>
+                    <li><a href="productlist.html">Productlist</a></li>
+                    
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>BLUME</h4>
+
+                <div class="social-icons">
+                    <a href="#" target="_blank">
+                        <img src="images/face_logo.png" alt="Facebook">
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <img src="images/insta_logo.png" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <img src="images/blume-logo.png" class="logo" alt="BLUME">
+            <p>© BLUME 2026. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="api.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>BLUME – Produkt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+
+        <a class="logo_wrap" href="index.html" aria-label="BLUME – forside">
+            <img src="images/blume-logo.png" class="logo" alt="BLUME">
+            
+        </a>
+        <button class="burger" aria-label="Åbn menu">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html" class="active">Frontpage</a></li>
+                <li><a href="productlist.html">Products</a></li>
+                
+            </ul>
+        </nav>
+
+    </header>
+    <main class="product-page">
+
+        <!-- BACK TO PRODUCTS -->
+
+        <a href="productlist.html" class="back-link">
+            ← Back to products
+        </a>
+
+
+        <p id="product-status" role="status"></p>
+        <!-- PRODUCT LAYOUT -->
+
+        <section class="product-detail">
+
+            <!-- PRODUCT IMAGE -->
+
+            <div class="product-detail-image">
+
+                <img class="detail-image" src="" alt="">
+
+                <p class="detail-sale-tag"></p>
+                <p class="detail-soldout-tag"></p>
+
+            </div>
+            <div>
+
+                <!-- PRODUCT INFORMATION -->
+
+                <div class="product-specifications">
+
+                    <h2>Model name</h2>
+                    <p class="detail-model"></p>
+
+                    <h2>Beskrivelse</h2>
+                    <p class="detail-color"></p>
+
+                    <h2>Inventory number</h2>
+                    <p class="detail-id"></p>
+
+                </div>
+
+
+                <!-- BRAND INFORMATION -->
+
+                <div class="brand-information">
+
+                    <h2 class="detail-brand"></h2>
+
+                    <p>
+                        <span class="detail-brand-text"></span>.
+                    </p>
+
+                </div>
+            </div>
+
+            <!-- BUY BOX -->
+
+            <aside class="product-buy-box">
+
+                <h2 class="detail-name"></h2>
+
+                <p class="product-category">
+                    <span class="detail-brand-category"></span> |
+                    <span class="detail-category"></span>
+                </p>
+
+                <div class="product-detail-price">
+                    <p class="detail-sale-price"></p>
+                    <p class="detail-original-price"></p>
+                </div>
+
+                
+
+                <p>Produktvisning – køb og indkøbskurv er ikke implementeret.</p>
+
+            </aside>
+
+        </section>
+
+    </main>
+    <footer class="footer">
+        <div class="footer-grid">
+
+            <div>
+                <h3>Finding your way</h3>
+                <ul>
+                    <li><a href="index.html">Frontpage</a></li>
+                    <li><a href="productlist.html">Productlist</a></li>
+                    
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>BLUME</h4>
+
+                <div class="social-icons">
+                    <a href="#" target="_blank">
+                        <img src="images/face_logo.png" alt="Facebook">
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <img src="images/insta_logo.png" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <img src="images/blume-logo.png" class="logo" alt="BLUME">
+            <p>© BLUME 2026. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="api.js"></script>
+    <script src="product.js"></script>
+
+</body>
+
+</html>

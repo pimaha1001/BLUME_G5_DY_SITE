@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>BLUME – Produkter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+
+        <a class="logo_wrap" href="index.html" aria-label="BLUME – forside">
+            <img src="images/blume-logo.png" class="logo" alt="BLUME">
+            
+        </a>
+        <button class="burger" aria-label="Åbn menu">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html" class="active">Frontpage</a></li>
+                <li><a href="productlist.html">Products</a></li>
+                
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="productlist-page">
+
+        <!-- HEADING -->
+        <section class="productlist-header">
+            <h1 id="category-title">Products</h1>
+
+            <p>
+                Udforsk Beauty, Fragrances og naturprodukterne under Natural.
+            </p>
+        </section>
+        <div class="btn_container">
+            <button class="btn" data-category="beauty">Alle Beauty-produkter</button>
+            <button class="btn" data-category="fragrances">Fragrances</button>
+            <button class="btn" data-category="natural">Natural</button>
+        </div>
+        <button type="button" class="btn sort_button">
+            Sorter efter pris (lav til høj)
+        </button>
+
+
+        <button type="button" class="btn" id="add-natural">Tilføj 5 Natural-demo-produkter</button>
+        <p id="natural-status" role="status"></p>
+        <!-- PRODUCT LIST -->
+        <section class="product_list_container" aria-live="polite">
+            <!-- Produkterne fra API'et kommer ind her -->
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+        <div class="footer-grid">
+
+            <div>
+                <h3>Finding your way</h3>
+                <ul>
+                    <li><a href="index.html">Frontpage</a></li>
+                    <li><a href="productlist.html">Productlist</a></li>
+                    
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>BLUME</h4>
+
+                <div class="social-icons">
+                    <a href="#" target="_blank">
+                        <img src="images/face_logo.png" alt="Facebook">
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <img src="images/insta_logo.png" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <img src="images/blume-logo.png" class="logo" alt="BLUME">
+            <p>© BLUME 2026. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="api.js"></script>
+    <script src="productlist.js"></script>
+</body>
+
+</html>
