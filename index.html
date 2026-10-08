@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
     <title>BLUME – Beauty, Fragrances og Natural</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,7 +19,7 @@
 
         <a class="logo_wrap" href="index.html" aria-label="BLUME – forside">
             <img src="images/blume-logo.png" class="logo" alt="BLUME">
-            
+
         </a>
         <button class="burger" aria-label="Åbn menu">
             <span class="line"></span>
@@ -27,31 +32,67 @@
             <ul>
                 <li><a href="index.html" class="active">Frontpage</a></li>
                 <li><a href="productlist.html">Products</a></li>
-                
+
             </ul>
+        </nav>
+
+        <nav class="header-actions" aria-label="Hurtige links">
+            <a href="search.html" aria-label="Søg" title="Søg">
+                <img src="images/search.svg" alt="" aria-hidden="true">
+            </a>
+            <a href="favorites.html" aria-label="Søg" title="Favorites">
+                <img src="images/heart.svg" alt="" aria-hidden="true">
+            </a>
+            <a href="profil.html" aria-label="Profil" title="Profil">
+                <img src="images/profil.svg" alt="" aria-hidden="true">
+            </a>
+            <a href="basket.html" aria-label="Kurv" title="Kurv">
+                <img src="images/basket.svg" alt="" aria-hidden="true">
+            </a>
+
         </nav>
 
     </header>
     <main>
 
-        <!-- KORT OM SITE -->
+        <div class="announcement-bar">
+            <strong>NYESTE PRODUKTER OG TILBUD</strong>
+        </div>
 
-        <section class="kortomsite">
-
-
-            <!-- TEKST -->
-
-            <div class="kortomsite-content">
-
-                <h1>Beauty & Fragrances</h1>
-
-                <h2>Find makeup, parfumer og naturprodukter
-                </h2>
-
+        <section class="hero">
+            <div class="hero-content">
+                <h1>SKØNHED FOR ALLE</h1>
+                <a href="/shop" class="hero-button">
+                    SHOP NU
+                </a>
             </div>
-
         </section>
 
+
+
+        <div class="frontpage-products">
+            <section class="frontpage-product-section" aria-labelledby="beauty-heading">
+                <div class="frontpage-section-heading">
+                    <h2 id="beauty-heading">MAKEUP</h2>
+                    <a href="productlist.html?category=beauty">Se alle</a>
+                </div>
+                <div class="frontpage-product-grid" id="beauty-products" aria-live="polite">Henter produkter …</div>
+            </section>
+            <section class="frontpage-product-section" aria-labelledby="fragrances-heading">
+                <div class="frontpage-section-heading">
+                    <h2 id="fragrances-heading">PARFUME</h2>
+                    <a href="productlist.html?category=fragrances">Se alle</a>
+                </div>
+                <div class="frontpage-product-grid" id="fragrances-products" aria-live="polite">Henter produkter …</div>
+            </section>
+            <section class="frontpage-product-section" aria-labelledby="natural-heading">
+                <div class="frontpage-section-heading">
+                    <h2 id="natural-heading">NATURAL</h2>
+                    <a href="productlist.html?category=beauty&amp;subcategory=natural">Se alle</a>
+                </div>
+                <div class="frontpage-product-grid" id="natural-products" aria-live="polite"></div>
+            </section>
+        </div>
         <section class="category-section">
             <h2>UDFORSK BEAUTY, FRAGRANCES OG NATURAL</h2>
 
@@ -69,7 +110,7 @@
                 <ul>
                     <li><a href="index.html">Frontpage</a></li>
                     <li><a href="productlist.html">Productlist</a></li>
-                    
+
                 </ul>
             </div>
 
