@@ -298,7 +298,7 @@ p {
   max-width: none;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  min-height: 390px;
+  min-height: 700px;
   padding-top: 0;
   overflow: hidden;
   background-color: var(--color-soft-pink);
