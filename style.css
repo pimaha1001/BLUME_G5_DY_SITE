@@ -310,6 +310,7 @@ p {
   justify-content: center;
   align-items: center;
   text-align: center;
+  html(srcroll-behavvior:smooth;)
 }
 
 .hero-content {
