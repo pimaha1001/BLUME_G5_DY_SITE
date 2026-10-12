@@ -39,16 +39,16 @@
 
         <nav class="header-actions" aria-label="Hurtige links">
             <a href="search.html" aria-label="Søg" title="Søg">
-                <img src="images/search.svg" alt="" aria-hidden="true">
+                <img src="images/search.svg" alt="" aria-hidden="true" width="30" height="30">
             </a>
             <a href="favorites.html" aria-label="Søg" title="Favorites">
-                <img src="images/heart.svg" alt="" aria-hidden="true">
+                <img src="images/heart.svg" alt="" aria-hidden="true" width="30" height="30">
             </a>
             <a href="profil.html" aria-label="Profil" title="Profil">
-                <img src="images/profil.svg" alt="" aria-hidden="true">
+                <img src="images/profil.svg" alt="" aria-hidden="true" width="30" height="30">
             </a>
             <a href="basket.html" aria-label="Kurv" title="Kurv">
-                <img src="images/basket.svg" alt="" aria-hidden="true">
+                <img src="images/basket.svg" alt="" aria-hidden="true" width="40" height="40">
             </a>
 
         </nav>
@@ -56,8 +56,23 @@
     </header>
     <main>
 
-        <div class="announcement-bar">
-            <strong>NYESTE PRODUKTER OG TILBUD</strong>
+        <div class="announcement-bar" role="region" aria-label="Nyheder og tilbud">
+            <div class="announcement-track">
+                <div class="announcement-group">
+                    <span>FRI FRAGT FOR KØB OVER 299KR</span>
+                    <span><a href="#sale-products">
+                            SE ALLE TILBUD
+                        </a></span>
+                    <span>MAKEUP, PARFUME OG NATURAL</span>
+                    <span>FIND DINE NYE FAVORITTER NU</span>
+                </div>
+                <div class="announcement-group" aria-hidden="true">
+                    <span>NYE PRODUKTER</span>
+                    <span>SE AKTUELLE TILBUD</span>
+                    <span>MAKEUP, PARFUME OG NATURAL</span>
+                    <span>FIND DINE FAVORITTER</span>
+                </div>
+            </div>
         </div>
 
         <section class="hero">
