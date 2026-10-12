@@ -25,10 +25,10 @@ function icon(type) {
   return img;
 }
 
-function renderProducts(target, products) {
+function renderProducts(target, products, limit = 4) {
   target.replaceChildren();
-  for (const product of products.slice(0, 4)) {
-    const card = element("article", undefined, "frontpage-product-card");
+  for (const product of products.slice(0, limit)) {
+    const card = element("article", undefined, `frontpage-product-card${product.discountPercentage ? " frontpage-sale-card" : ""}`);
     const link = element("a", undefined, "frontpage-product-link");
     link.href = productHref(product);
     const img = element("img");
@@ -72,6 +72,7 @@ function renderProducts(target, products) {
     actions.append(bag, heart);
     bottom.append(prices, actions);
     card.append(link, bottom);
+    if (product.discountPercentage) card.append(element("p", `-${product.discountPercentage}%`, "frontpage-sale-tag"));
     if (product.stock === 0) card.append(element("p", "Udsolgt", "frontpage-stock"));
     target.append(card);
   }
@@ -112,6 +113,15 @@ async function showCategories() {
       console.error(result.reason);
     }
   });
+
+  const saleTarget = document.querySelector("#sale-products-grid");
+  const saleProducts = results.flatMap((result) => (result.status === "fulfilled" ? result.value : [])).filter((product) => product.discountPercentage > 0);
+  renderProducts(saleTarget, saleProducts, Infinity);
+  if (!saleProducts.length) {
+    saleTarget.textContent = results.some((result) => result.status === "rejected") ? "Tilbud kunne ikke indlæses. Prøv at genindlæse siden." : "Ingen produkter på tilbud lige nu.";
+  } else if (results.some((result) => result.status === "rejected")) {
+    saleTarget.append(element("p", "Nogle tilbud kunne ikke indlæses.", "frontpage-grid-message"));
+  }
 
   choices.push({ title: "Natural", href: "productlist.html?category=beauty&subcategory=natural", product: { thumbnail: "images/natural-placeholder.svg" } });
   for (const choice of choices) {
