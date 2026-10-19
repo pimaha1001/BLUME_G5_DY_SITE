@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <!-- Fælles sidehoved og navigation. -->
     <header class="header">
 
         <a class="logo_wrap" href="index.html" aria-label="BLUME – forside">
@@ -61,7 +62,7 @@
 
     <main class="productlist-page">
 
-        <!-- HEADING -->
+        <!-- Overskrift ændres af productlist.js efter valgt kategori. -->
         <section class="productlist-header">
             <h1 id="category-title">Products</h1>
 
@@ -70,6 +71,7 @@
             </p>
         </section>
         <div class="btn_container">
+            <!-- Knapperne vælger kategori; sorteringsknappen sorterer den viste liste. -->
             <button class="btn" data-category="beauty">Alle Beauty-produkter</button>
             <button class="btn" data-category="fragrances">Fragrances</button>
             <button class="btn" data-category="natural">Natural</button>
@@ -77,14 +79,15 @@
         <button type="button" class="btn sort_button">
             Sorter efter pris (lav til høj)
         </button>
+        <p id="basket-action-status" role="status" aria-live="polite"></p>
 
-
-        <button type="button" class="btn" id="add-natural">Tilføj 5 Natural-demo-produkter</button>
-        <p id="natural-status" role="status"></p>
-        <!-- PRODUCT LIST -->
+        <!-- Produktkort indsættes her af productlist.js. -->
         <section class="product_list_container" aria-live="polite">
-            <!-- Produkterne fra API'et kommer ind her -->
         </section>
+        <!-- Fælles sidefod. -->
+        <footer class="footer">
+            <!-- API-hjælpere skal indlæses før produktlistens kode. -->
+            <script src="script.js"></script>
 
     </main>
 

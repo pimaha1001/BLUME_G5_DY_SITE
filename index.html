@@ -2,6 +2,7 @@
 <html lang="da">
 
 <head>
+    <!-- Sidens metadata, skrifttyper og fælles styling. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
@@ -16,6 +17,7 @@
 </head>
 
 <body>
+    <!-- Fælles sidehoved med logo, menu og hurtige links. -->
     <header class="header">
 
         <a class="logo_wrap" href="index.html" aria-label="BLUME – forside">
@@ -56,6 +58,7 @@
     </header>
     <main>
 
+        <!-- Rullende beskeder om levering, nyheder og tilbud. -->
         <div class="announcement-bar" role="region" aria-label="Nyheder og tilbud">
             <div class="announcement-track">
                 <div class="announcement-group">
@@ -75,6 +78,7 @@
             </div>
         </div>
 
+        <!-- Forsidens hovedbanner og genvej til produkterne. -->
         <section class="hero">
             <div class="hero-content">
                 <h1>SKØNHED FOR ALLE</h1>
@@ -87,6 +91,7 @@
 
 
         <div class="frontpage-products" id="frontpage-products">
+            <!-- Produktsektioner udfyldes med data af index.js. -->
             <section class="frontpage-product-section" aria-labelledby="beauty-heading">
                 <div class="frontpage-section-heading">
                     <h2 id="beauty-heading">MAKEUP</h2>
@@ -99,7 +104,8 @@
                     <h2 id="fragrances-heading">PARFUME</h2>
                     <a href="productlist.html?category=fragrances">Se alle</a>
                 </div>
-                <div class="frontpage-product-grid" id="fragrances-products" aria-live="polite">Henter produkter …</div>
+                <div class="frontpage-product-grid" id="fragrances-products" aria-live="polite">Henter produkter …
+                </div>
             </section>
             <section class="frontpage-product-section" aria-labelledby="natural-heading">
                 <div class="frontpage-section-heading">
@@ -115,6 +121,7 @@
                 <div class="frontpage-product-grid" id="sale-products-grid" aria-live="polite">Henter tilbud …</div>
             </section>
         </div>
+        <!-- Kampagnebanner for BLUME-boksen. -->
         <section class="goodiebox">
             <div class="goodiebox-content">
                 <h1>Blume boxen</h1>
@@ -124,6 +131,7 @@
                 </a>
             </div>
         </section>
+        <!-- Anmeldelser hentes og vises som karrusel af reviews.js. -->
         <section class="blume-reviews" aria-labelledby="blume-reviews-title">
             <div class="blume-reviews-intro">
                 <h2 id="blume-reviews-title">BLUME FAMILIENS ANBEFALINGER</h2>
@@ -140,6 +148,7 @@
                     aria-label="Næste anmeldelser">&#10095;</button>
             </div>
         </section>
+        <!-- Kategorikort oprettes dynamisk af index.js. -->
         <section class="category-section">
             <h2>UDFORSK BEAUTY, FRAGRANCES OG NATURAL</h2>
 
@@ -149,6 +158,7 @@
         </section>
 
     </main>
+    <!-- Fælles sidefod med navigation og sociale links. -->
     <footer class="footer">
         <div class="footer-grid">
 
@@ -182,6 +192,7 @@
             <p>© BLUME 2026. All Rights Reserved.</p>
         </div>
     </footer>
+    <!-- Fælles scripts indlæses før sidens egne data- og visningsscripts. -->
     <script src="script.js"></script>
     <script src="api.js"></script>
     <script src="index.js"></script>

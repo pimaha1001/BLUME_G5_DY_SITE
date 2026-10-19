@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <!-- Fælles sidehoved og navigation. -->
     <header class="header">
 
         <a class="logo_wrap" href="index.html" aria-label="BLUME – forside">
@@ -38,105 +39,75 @@
         </nav>
 
         <nav class="header-actions" aria-label="Hurtige links">
-            <a href="basket.html" aria-label="Kurv" title="Kurv">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="m5 11 1 9h12l1-9M2 11h20M5 11l3-7m11 7-3-7M10 11l2-7m2 7-2-7" />
-                </svg>
+            <a href="search.html" aria-label="Søg" title="Søg">
+                <img src="images/search.svg" alt="" aria-hidden="true" width="30" height="30">
+            </a>
+            <a href="favorites.html" aria-label="Favoritter" title="Favoritter">
+                <img src="images/heart.svg" alt="" aria-hidden="true" width="30" height="30">
             </a>
             <a href="profil.html" aria-label="Profil" title="Profil">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <circle cx="12" cy="8" r="5" />
-                    <path d="M20 21a8 8 0 0 0-16 0" />
-                </svg>
+                <img src="images/profil.svg" alt="" aria-hidden="true" width="30" height="30">
             </a>
-            <a href="search.html" aria-label="Søg" title="Søg">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <circle cx="11" cy="11" r="8" />
-                    <path d="m21 21-4.35-4.35" />
-                </svg>
+            <a href="basket.html" aria-label="Kurv" title="Kurv">
+                <img src="images/basket.svg" alt="" aria-hidden="true" width="40" height="40">
             </a>
         </nav>
 
     </header>
+    <!-- Produktfelterne udfyldes dynamisk ud fra id'et i URL'en. -->
     <main class="product-page">
-
-        <!-- BACK TO PRODUCTS -->
-
-        <a href="productlist.html" class="back-link">
-            ← Back to products
+        <a href="productlist.html" class="back-link" aria-label="Tilbage til produkter">
+            ←
         </a>
 
+        <p id="product-status" role="status" aria-live="polite">Henter produkt …</p>
 
-        <p id="product-status" role="status"></p>
-        <!-- PRODUCT LAYOUT -->
-
-        <section class="product-detail">
-
-            <!-- PRODUCT IMAGE -->
-
+        <!-- Indeholder produktbillede, information og købskontroller. -->
+        <section class="product-detail" hidden>
             <div class="product-detail-image">
-
                 <img class="detail-image" src="" alt="">
-
+                <button class="product-favorite favorite-button" id="product-favorite" type="button"
+                    aria-label="Tilføj til favoritter" aria-pressed="false">♡</button>
                 <p class="detail-sale-tag"></p>
                 <p class="detail-soldout-tag"></p>
-
             </div>
-            <div>
 
-                <!-- PRODUCT INFORMATION -->
-
+            <div class="product-content">
                 <div class="product-specifications">
-
-                    <h2>Model name</h2>
+                    <div class="brand-information">
+                        <h2 class="detail-brand"></h2>
+                    </div>
+                    <h2>Produktnavn</h2>
                     <p class="detail-model"></p>
-
                     <h2>Beskrivelse</h2>
                     <p class="detail-color"></p>
-
-                    <h2>Inventory number</h2>
+                    <h2>Produkt-id</h2>
                     <p class="detail-id"></p>
 
                 </div>
 
-
-                <!-- BRAND INFORMATION -->
-
-                <div class="brand-information">
-
-                    <h2 class="detail-brand"></h2>
-
-                    <p>
-                        <span class="detail-brand-text"></span>.
+                <aside class="product-buy-box">
+                    <h2 class="detail-name"></h2>
+                    <p class="product-category">
+                        <span class="detail-brand-category"></span> |
+                        <span class="detail-category"></span>
                     </p>
-
-                </div>
+                    <div class="product-detail-price">
+                        <p class="detail-sale-price"></p>
+                        <p class="detail-original-price"></p>
+                    </div>
+                    <div class="purchase-actions">
+                        <div class="quantity-selector" role="group" aria-label="Vælg antal">
+                            <button type="button" class="quantity-minus" aria-label="Mindsk antal" disabled>−</button>
+                            <span class="quantity-value" aria-live="polite">1</span>
+                            <button type="button" class="quantity-plus" aria-label="Forøg antal">+</button>
+                        </div>
+                        <button class="add-to-basket" id="add-product-to-basket" type="button">Læg i kurv</button>
+                    </div>
+                    <p id="product-action-status" role="status" aria-live="polite"></p>
+                </aside>
             </div>
-
-            <!-- BUY BOX -->
-
-            <aside class="product-buy-box">
-
-                <h2 class="detail-name"></h2>
-
-                <p class="product-category">
-                    <span class="detail-brand-category"></span> |
-                    <span class="detail-category"></span>
-                </p>
-
-                <div class="product-detail-price">
-                    <p class="detail-sale-price"></p>
-                    <p class="detail-original-price"></p>
-                </div>
-
-
-
-                <p>Produktvisning – køb og indkøbskurv er ikke implementeret.</p>
-
-            </aside>
-
         </section>
-
     </main>
     <footer class="footer">
         <div class="footer-grid">
