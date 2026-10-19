@@ -30,7 +30,8 @@ async function getCategory(category) {
   return data.products;
 }
 
-// Natural findes ikke i DummyJSON, så de fem produkter ligger fast i koden.
+// Natural-demoen er midlertidigt deaktiveret. Dataene er bevaret som kommentar.
+/*
 const naturalExamples = [
   { title: "Natural Aloe Vera Gel", description: "Fiktivt demo-produkt: aloe vera-gel til hudpleje.", price: 12.99, stock: 30, image: "images/NaturalAloeVeraGel.jpg" },
   { title: "Natural Jojoba Face Oil", description: "Fiktivt demo-produkt: ansigtsolie med jojoba.", price: 18.99, stock: 25, image: "images/NaturalJojobaFaceOil.jpg" },
@@ -42,6 +43,7 @@ const naturalExamples = [
 function getNaturalProducts() {
   return naturalExamples;
 }
+*/
 
 // Navnet på browserlagerets felt, hvor kurven gemmes.
 const BASKET_KEY = "blume-basket-v1";

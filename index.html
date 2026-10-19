@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
-    <title>BLUME – Beauty, Fragrances og Natural</title>
+    <title>BLUME – Beauty and Fragrances</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,7 @@
             <img src="images/blume-logo.png" class="logo" alt="BLUME">
 
         </a>
-        <button class="burger" aria-label="Åbn menu">
+        <button class="burger" aria-label="Open menu">
             <span class="line"></span>
             <span class="line"></span>
             <span class="line"></span>
@@ -39,17 +39,17 @@
             </ul>
         </nav>
 
-        <nav class="header-actions" aria-label="Hurtige links">
-            <a href="search.html" aria-label="Søg" title="Søg">
+        <nav class="header-actions" aria-label="Quick links">
+            <a href="search.html" aria-label="Search" title="Search">
                 <img src="images/search.svg" alt="" aria-hidden="true" width="30" height="30">
             </a>
-            <a href="favorites.html" aria-label="Søg" title="Favorites">
+            <a href="favorites.html" aria-label="Favorites" title="Favorites">
                 <img src="images/heart.svg" alt="" aria-hidden="true" width="30" height="30">
             </a>
-            <a href="profil.html" aria-label="Profil" title="Profil">
-                <img src="images/profil.svg" alt="" aria-hidden="true" width="30" height="30">
+            <a href="#" id="login-open" aria-label="Åbn login">
+                <img src="images/profil.svg" alt="Profil" aria-hidden="true" width="30" height="30">
             </a>
-            <a href="basket.html" aria-label="Kurv" title="Kurv">
+            <a href="basket.html" aria-label="Basket" title="Basket">
                 <img src="images/basket.svg" alt="" aria-hidden="true" width="40" height="40">
             </a>
 
@@ -58,22 +58,22 @@
     </header>
     <main>
 
-        <!-- Rullende beskeder om levering, nyheder og tilbud. -->
-        <div class="announcement-bar" role="region" aria-label="Nyheder og tilbud">
+        <!-- Scrolling messages about shipping, news and offers. -->
+        <div class="announcement-bar" role="region" aria-label="News and offers">
             <div class="announcement-track">
                 <div class="announcement-group">
-                    <span>FRI FRAGT FOR KØB OVER 299KR</span>
+                    <span>FREE SHIPPING ON ORDERS OVER DKK 299</span>
                     <span><a href="#sale-products">
-                            SE ALLE TILBUD
+                            SEE ALL OFFERS
                         </a></span>
-                    <span>MAKEUP, PARFUME OG NATURAL</span>
-                    <span>FIND DINE NYE FAVORITTER NU</span>
+                    <span>MAKEUP &amp; FRAGRANCE</span>
+                    <span>FIND YOUR NEW FAVORITES NOW</span>
                 </div>
                 <div class="announcement-group" aria-hidden="true">
-                    <span>NYE PRODUKTER</span>
-                    <span>SE AKTUELLE TILBUD</span>
-                    <span>MAKEUP, PARFUME OG NATURAL</span>
-                    <span>FIND DINE FAVORITTER</span>
+                    <span>NEW PRODUCTS</span>
+                    <span>SEE CURRENT OFFERS</span>
+                    <span>MAKEUP &amp; FRAGRANCE</span>
+                    <span>FIND YOUR FAVORITES</span>
                 </div>
             </div>
         </div>
@@ -81,9 +81,9 @@
         <!-- Forsidens hovedbanner og genvej til produkterne. -->
         <section class="hero">
             <div class="hero-content">
-                <h1>SKØNHED FOR ALLE</h1>
+                <h1>BEAUTY FOR EVERYONE</h1>
                 <a href="#frontpage-products" class="hero-button">
-                    SHOP NU
+                    SHOP NOW
                 </a>
             </div>
         </section>
@@ -95,28 +95,30 @@
             <section class="frontpage-product-section" aria-labelledby="beauty-heading">
                 <div class="frontpage-section-heading">
                     <h2 id="beauty-heading">MAKEUP</h2>
-                    <a href="productlist.html?category=beauty">Se alle</a>
+                    <a href="productlist.html?category=beauty">→</a>
                 </div>
                 <div class="frontpage-product-grid" id="beauty-products" aria-live="polite">Henter produkter …</div>
             </section>
             <section class="frontpage-product-section" aria-labelledby="fragrances-heading">
                 <div class="frontpage-section-heading">
                     <h2 id="fragrances-heading">PARFUME</h2>
-                    <a href="productlist.html?category=fragrances">Se alle</a>
+                    <a href="productlist.html?category=fragrances">→</a>
                 </div>
                 <div class="frontpage-product-grid" id="fragrances-products" aria-live="polite">Henter produkter …
                 </div>
             </section>
+            <!-- Natural-demoen er midlertidigt deaktiveret.
             <section class="frontpage-product-section" aria-labelledby="natural-heading">
                 <div class="frontpage-section-heading">
                     <h2 id="natural-heading">NATURAL</h2>
-                    <a href="productlist.html?category=beauty&amp;subcategory=natural">Se alle</a>
+                    <a href="productlist.html?category=beauty&amp;subcategory=natural">→</a>
                 </div>
                 <div class="frontpage-product-grid" id="natural-products" aria-live="polite"></div>
             </section>
+            -->
             <section class="frontpage-product-section" id="sale-products" aria-labelledby="sale-heading">
                 <div class="frontpage-section-heading">
-                    <h2 id="sale-heading">TILBUD</h2>
+                    <h2 id="sale-heading">OUTLET</h2>
                 </div>
                 <div class="frontpage-product-grid" id="sale-products-grid" aria-live="polite">Henter tilbud …</div>
             </section>
@@ -124,19 +126,19 @@
         <!-- Kampagnebanner for BLUME-boksen. -->
         <section class="goodiebox">
             <div class="goodiebox-content">
-                <h1>Blume boxen</h1>
-                <h2>Noget for dig?</h2>
+                <h1>BLUME Box</h1>
+                <h2>Something for you?</h2>
                 <a href="#frontpage-products" class="hero-button">
-                    Tilmeld dig nu
+                    Sign up now
                 </a>
             </div>
         </section>
         <!-- Anmeldelser hentes og vises som karrusel af reviews.js. -->
         <section class="blume-reviews" aria-labelledby="blume-reviews-title">
             <div class="blume-reviews-intro">
-                <h2 id="blume-reviews-title">BLUME FAMILIENS ANBEFALINGER</h2>
+                <h2 id="blume-reviews-title">THE BLUME FAMILY RECOMMENDATIONS</h2>
                 <div class="blume-reviews-intro-stars" aria-hidden="true">★★★★★</div>
-                <p>Se hvad andre synes om produkterne</p>
+                <p>Check out what others think of the products</p>
             </div>
             <div class="blume-reviews-slider">
                 <button class="blume-reviews-arrow" id="reviews-prev" type="button"
@@ -148,15 +150,6 @@
                     aria-label="Næste anmeldelser">&#10095;</button>
             </div>
         </section>
-        <!-- Kategorikort oprettes dynamisk af index.js. -->
-        <section class="category-section">
-            <h2>UDFORSK BEAUTY, FRAGRANCES OG NATURAL</h2>
-
-            <div class="category-grid" id="category">
-                <!-- Kategorier fra API'et kommer ind her -->
-            </div>
-        </section>
-
     </main>
     <!-- Fælles sidefod med navigation og sociale links. -->
     <footer class="footer">
@@ -172,31 +165,69 @@
             </div>
 
             <div class="footer-social">
-                <h4>BLUME</h4>
+                <img src="images/blume-logo.png" class="logo" alt="BLUME">
 
-                <div class="social-icons">
-                    <a href="#" target="_blank">
-                        <img src="images/face_logo.png" alt="Facebook">
-                    </a>
+            </div>
 
-                    <a href="#" target="_blank">
-                        <img src="images/insta_logo.png" alt="Instagram">
-                    </a>
-                </div>
+            <div class="footer-information">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="index.html">about BLUME</a></li>
+                    <li><a href="mailto:info@blume.dk">Contact</a></li>
+                </ul>
             </div>
 
         </div>
 
         <div class="footer-bottom">
-            <img src="images/blume-logo.png" class="logo" alt="BLUME">
+            <div class="social-icons">
+                <a href="#" target="_blank">
+                    <img src="images/icons8-facebook-24.png" alt="Facebook">
+                </a>
+
+                <a href="#" target="_blank">
+                    <img src="images/icons8-instagram-24.png" alt="Instagram">
+                </a>
+                <a href="#" target="_blank">
+                    <img src="images/icons8-tiktok-24.png" alt="Tiktok">
+                </a>
+            </div>
+
             <p>© BLUME 2026. All Rights Reserved.</p>
         </div>
     </footer>
+    <div class="login-overlay" id="login-overlay" hidden>
+        <section class="login-popup" role="dialog" aria-modal="true" aria-labelledby="login-title">
+            <button class="login-close" id="login-close" type="button" aria-label="Luk">
+                &times;
+            </button>
+
+            <h2 id="login-title">LOG IN</h2>
+
+            <form id="login-form">
+                <label for="login-mail">MAIL</label>
+                <input id="login-mail" name="email" type="email" autocomplete="email">
+
+                <label for="login-password">PASSWORD</label>
+                <input id="login-password" name="password" type="password" autocomplete="current-password">
+
+                <button class="login-submit" type="submit">
+                    LOG IN
+                </button>
+            </form>
+
+            <a class="create-account" href="index.html">
+                SIGN UP
+            </a>
+        </section>
+    </div>
     <!-- Fælles scripts indlæses før sidens egne data- og visningsscripts. -->
     <script src="script.js"></script>
     <script src="api.js"></script>
     <script src="index.js"></script>
     <script src="reviews.js"></script>
+    <script src="login.js"></script>
+
 </body>
 
 </html>

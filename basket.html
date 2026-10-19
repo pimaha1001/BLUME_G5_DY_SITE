@@ -39,8 +39,8 @@
             <a href="favorites.html" aria-label="Favoritter" title="Favoritter">
                 <img src="images/heart.svg" alt="" aria-hidden="true" width="30" height="30">
             </a>
-            <a href="profil.html" aria-label="Profil" title="Profil">
-                <img src="images/profil.svg" alt="" aria-hidden="true" width="30" height="30">
+            <a href="#" id="login-open" aria-label="Åbn login">
+                <img src="images/profil.svg" alt="Profil" aria-hidden="true" width="30" height="30">
             </a>
             <a href="basket.html" aria-label="Kurv" title="Kurv">
                 <img src="images/basket.svg" alt="" aria-hidden="true" width="40" height="40">
@@ -74,6 +74,14 @@
         <div class="footer-grid">
             <div>
                 <h3>Finding your way</h3>
+
+                <div class="footer-information">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="index.html">about BLUME</a></li>
+                        <li><a href="mailto:info@blume.dk">Contact</a></li>
+                    </ul>
+                </div>
                 <ul>
                     <li><a href="index.html">Frontpage</a></li>
                     <li><a href="productlist.html">Productlist</a></li>
@@ -96,10 +104,36 @@
             <p>© BLUME 2026. All Rights Reserved.</p>
         </div>
     </footer>
+    <div class="login-overlay" id="login-overlay" hidden>
+        <section class="login-popup" role="dialog" aria-modal="true" aria-labelledby="login-title">
+            <button class="login-close" id="login-close" type="button" aria-label="Luk">
+                &times;
+            </button>
 
+            <h2 id="login-title">LOG IN</h2>
+
+            <form id="login-form">
+                <label for="login-mail">MAIL</label>
+                <input id="login-mail" name="email" type="email" autocomplete="email">
+
+                <label for="login-password">PASSWORD</label>
+                <input id="login-password" name="password" type="password" autocomplete="current-password">
+
+                <button class="login-submit" type="submit">
+                    LOG IN
+                </button>
+            </form>
+
+            <a class="create-account" href="index.html">
+                SIGN UP
+            </a>
+        </section>
+    </div>
     <script src="script.js"></script>
     <script src="api.js"></script>
     <script src="basket.js"></script>
+    <script src="login.js"></script>
+
 </body>
 
 </html>

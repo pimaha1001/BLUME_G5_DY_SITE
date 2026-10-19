@@ -23,7 +23,7 @@
             <img src="images/blume-logo.png" class="logo" alt="BLUME">
 
         </a>
-        <button class="burger" aria-label="Åbn menu">
+        <button class="burger" aria-label="Open menu">
             <span class="line"></span>
             <span class="line"></span>
             <span class="line"></span>
@@ -38,24 +38,20 @@
             </ul>
         </nav>
 
-        <nav class="header-actions" aria-label="Hurtige links">
-            <a href="basket.html" aria-label="Kurv" title="Kurv">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="m5 11 1 9h12l1-9M2 11h20M5 11l3-7m11 7-3-7M10 11l2-7m2 7-2-7" />
-                </svg>
+        <nav class="header-actions" aria-label="Quick links">
+            <a href="search.html" aria-label="Search" title="Search">
+                <img src="images/search.svg" alt="" aria-hidden="true" width="30" height="30">
             </a>
-            <a href="profil.html" aria-label="Profil" title="Profil">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <circle cx="12" cy="8" r="5" />
-                    <path d="M20 21a8 8 0 0 0-16 0" />
-                </svg>
+            <a href="favorites.html" aria-label="Favorites" title="Favorites">
+                <img src="images/heart.svg" alt="" aria-hidden="true" width="30" height="30">
             </a>
-            <a href="search.html" aria-label="Søg" title="Søg">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <circle cx="11" cy="11" r="8" />
-                    <path d="m21 21-4.35-4.35" />
-                </svg>
+            <a href="#" id="login-open" aria-label="Åbn login">
+                <img src="images/profil.svg" alt="Profil" aria-hidden="true" width="30" height="30">
             </a>
+            <a href="basket.html" aria-label="Basket" title="Basket">
+                <img src="images/basket.svg" alt="" aria-hidden="true" width="40" height="40">
+            </a>
+
         </nav>
 
     </header>
@@ -67,17 +63,19 @@
             <h1 id="category-title">Products</h1>
 
             <p>
-                Udforsk Beauty, Fragrances og naturprodukterne under Natural.
+                Discover your new favoritess.
             </p>
         </section>
         <div class="btn_container">
             <!-- Knapperne vælger kategori; sorteringsknappen sorterer den viste liste. -->
-            <button class="btn" data-category="beauty">Alle Beauty-produkter</button>
+            <button class="btn" data-category="beauty">Beauty-products</button>
             <button class="btn" data-category="fragrances">Fragrances</button>
+            <!-- Natural-demoen er midlertidigt deaktiveret.
             <button class="btn" data-category="natural">Natural</button>
+            -->
         </div>
         <button type="button" class="btn sort_button">
-            Sorter efter pris (lav til høj)
+            Sort by price: low to high
         </button>
         <p id="basket-action-status" role="status" aria-live="polite"></p>
 
@@ -105,29 +103,68 @@
             </div>
 
             <div class="footer-social">
-                <h4>BLUME</h4>
+                <img src="images/blume-logo.png" class="logo" alt="BLUME">
 
-                <div class="social-icons">
-                    <a href="#" target="_blank">
-                        <img src="images/face_logo.png" alt="Facebook">
-                    </a>
+            </div>
 
-                    <a href="#" target="_blank">
-                        <img src="images/insta_logo.png" alt="Instagram">
-                    </a>
-                </div>
+            <div class="footer-information">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="index.html">about BLUME</a></li>
+                    <li><a href="mailto:info@blume.dk">Contact</a></li>
+                </ul>
             </div>
 
         </div>
 
         <div class="footer-bottom">
-            <img src="images/blume-logo.png" class="logo" alt="BLUME">
+            <div class="social-icons">
+                <a href="#" target="_blank">
+                    <img src="images/icons8-facebook-24.png" alt="Facebook">
+                </a>
+
+                <a href="#" target="_blank">
+                    <img src="images/icons8-instagram-24.png" alt="Instagram">
+                </a>
+                <a href="#" target="_blank">
+                    <img src="images/icons8-tiktok-24.png" alt="Tiktok">
+                </a>
+            </div>
+
             <p>© BLUME 2026. All Rights Reserved.</p>
         </div>
     </footer>
+    <div class="login-overlay" id="login-overlay" hidden>
+        <section class="login-popup" role="dialog" aria-modal="true" aria-labelledby="login-title">
+            <button class="login-close" id="login-close" type="button" aria-label="Luk">
+                &times;
+            </button>
+
+            <h2 id="login-title">LOG IN</h2>
+
+            <form id="login-form">
+                <label for="login-mail">MAIL</label>
+                <input id="login-mail" name="email" type="email" autocomplete="email">
+
+                <label for="login-password">PASSWORD</label>
+                <input id="login-password" name="password" type="password" autocomplete="current-password">
+
+                <button class="login-submit" type="submit">
+                    LOG IN
+                </button>
+            </form>
+
+            <a class="create-account" href="index.html">
+                SIGN UP
+            </a>
+        </section>
+    </div>
     <script src="script.js"></script>
     <script src="api.js"></script>
     <script src="productlist.js"></script>
+    <script src="login.js"></script>
+
+
 </body>
 
 </html>

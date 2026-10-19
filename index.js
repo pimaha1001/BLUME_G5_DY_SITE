@@ -1,6 +1,5 @@
 "use strict";
-// Forsidens kode: produktsektioner, kategorikort og favoritter.
-const container = document.querySelector("#category");
+// Forsidens kode: produktsektioner, tilbud og favoritter.
 const FAVORITES_KEY = "blume-favorites-v1";
 
 // Læser favoritter fra browseren; ugyldige gemte data giver en tom samling.
@@ -17,7 +16,7 @@ const favorites = readFavorites();
 
 // Bygger URL'en til et produkt, inklusive Natural-underkategorien.
 function productHref(product) {
-  return `product.html?id=${encodeURIComponent(product.id)}&category=${encodeURIComponent(product.category)}${product.subcategory === "natural" ? "&subcategory=natural" : ""}`;
+  return `product.html?id=${encodeURIComponent(product.id)}&category=${encodeURIComponent(product.category)}`;
 }
 
 // Opretter billedet, der bruges i en produktkort-knap.
@@ -89,7 +88,7 @@ function renderProducts(target, products, limit = 4) {
   }
 }
 
-// Viser de lokale Natural-produkter på forsiden.
+/* Natural-demoen er midlertidigt deaktiveret på forsiden.
 function renderNatural() {
   const target = document.querySelector("#natural-products");
   const products = getNaturalProducts();
@@ -98,24 +97,21 @@ function renderNatural() {
     target.append(element("p", "Ingen Natural-produkter fundet.", "frontpage-grid-message"));
   }
 }
+*/
 
-// Henter API-produkter, viser tilbud og bygger kategorikortene nederst på siden.
-async function showCategories() {
-  container.textContent = "Henter produkter …";
-  renderNatural();
+// Henter API-produkter og viser forsidens produktsektioner og tilbud.
+async function loadFrontpageProducts() {
   const choices = [
-    { title: "Beauty", category: "beauty", target: "beauty-products", href: "productlist.html?category=beauty" },
-    { title: "Fragrances", category: "fragrances", target: "fragrances-products", href: "productlist.html?category=fragrances" },
+    { category: "beauty", target: "beauty-products" },
+    { category: "fragrances", target: "fragrances-products" },
   ];
   const results = await Promise.allSettled(choices.map((choice) => getCategory(choice.category)));
-  container.replaceChildren();
 
-  // Tegner hver kategori, eller viser en fejlbesked for kategorier, der fejler.
+  // Tegner hver produktsektion, eller viser en fejlbesked hvis API-kaldet fejler.
   choices.forEach((choice, index) => {
     const result = results[index];
     const target = document.querySelector(`#${choice.target}`);
     if (result.status === "fulfilled") {
-      choice.product = result.value[0];
       renderProducts(target, result.value);
       if (!result.value.length) target.textContent = "Ingen produkter fundet.";
     } else {
@@ -133,21 +129,6 @@ async function showCategories() {
   } else if (results.some((result) => result.status === "rejected")) {
     saleTarget.append(element("p", "Nogle tilbud kunne ikke indlæses.", "frontpage-grid-message"));
   }
-
-  // Opretter et kortlink for hver kategori på forsiden.
-  choices.push({ title: "Natural", href: "productlist.html?category=beauty&subcategory=natural", product: { thumbnail: "images/natural-placeholder.svg" } });
-  for (const choice of choices) {
-    const link = element("a", undefined, "category-card");
-    link.href = choice.href;
-    if (choice.product) {
-      const img = element("img");
-      img.src = choice.product.thumbnail;
-      img.alt = choice.title;
-      link.append(img);
-    }
-    link.append(element("span", choice.title, "category-button"));
-    container.append(link);
-  }
 }
 
 // Fælles statusfelt til beskeder om favorit og kurv-handlinger.
@@ -155,8 +136,5 @@ const actionStatus = element("p", undefined, "frontpage-action-status");
 actionStatus.id = "frontpage-action-status";
 actionStatus.setAttribute("role", "status");
 document.querySelector(".frontpage-products").append(actionStatus);
-// Opdaterer Natural-sektionen, når siden vises igen.
-window.addEventListener("pageshow", renderNatural);
-
 // Starter indlæsningen af forsiden.
-showCategories();
+loadFrontpageProducts();
