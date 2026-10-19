@@ -1,109 +1,160 @@
-# Beauty, Fragrances og Natural med DummyJSON
+Teknisk dokumentation – BLUME
 
-## Start hjemmesiden
-Pak ZIP-filen ud. Åbn mappen i VS Code, og åbn index.html med Live Server.
-Alternativt: kør `python -m http.server 8000` i mappen og åbn http://localhost:8000.
-Internet er nødvendigt for at hente produkter og billeder.
+Om projektet
+Dette projekt er lavet som en del af Tema 8. Vi har udviklet en dynamisk webshop med HTML, CSS og JavaScript, hvor produktindhold hentes fra et REST API (DummyJSON). Websitet har en forside, produktliste, produktdetaljeside og indkøbskurv.
 
-## Kategorier og underkategori
-Beauty hentes fra https://dummyjson.com/products/category/beauty?limit=0.
-Fragrances (parfumer) hentes fra https://dummyjson.com/products/category/fragrances?limit=0.
-Natural er vores lokale underkategori under Beauty. Essence-kategorifilteret er fjernet.
-Et produkt fra Essence kan stadig vises under Beauty, som en del af API'ets data.
+Brugeren kan se Beauty- og Fragrances-produkter, filtrere efter kategori, sortere efter laveste tilbudspris, åbne produktdetaljer, vælge antal, tilføje varer til kurven og gemme favoritter. Forsiden viser også produktanmeldelser. Profilikonet kan åbne en login-popup, men der er endnu ikke rigtig brugerautentificering.
 
-## Filerne
-- api.js: fælles fetch, DOM-hjælpere og prisberegning. Indlæses før sidens eget script.
-- index.js: bygger tre kort med links til Beauty, Fragrances og Natural.
-- productlist.js: læser `data.products`, filtrerer kategori og underkategori og sorterer efter pris efter rabat.
-- product.js: læser id fra sidens URL og henter `/products/{id}`.
-- HTML/CSS: den oprindelige skabelons layout med filtre tilpasset Beauty.
+Links
 
-## Ændringer i datafelter
-| Oprindeligt | DummyJSON |
-| --- | --- |
-| productdisplayname | title |
-| brandname | brand |
-| discount | discountPercentage |
-| soldout | stock === 0 |
-| Billedadresse bygget af id | thumbnail eller images[0] |
-| Produktliste direkte i svaret | data.products |
-| basecolour | Findes ikke; feltet viser description i stedet |
+- GitHub repository: [indsæt link]
+- GitHub Pages: [indsæt link]
+- Figma: [indsæt link]
+- Trello: [indsæt link]
 
-## Eksempel: hent og filtrér
-```js
-const response = await fetch("https://dummyjson.com/products/category/beauty?limit=0");
-if (!response.ok) throw new Error(`API-fejl: ${response.status}`);
-const data = await response.json();
-const beautyProducts = data.products;
-```
-`fetch()` sender en GET-forespørgsel. `response.json()` omdanner svaret til JavaScript-data.
-Svaret er et objekt med products, total, skip og limit. Derfor bruges data.products.
-limit=0 henter alle produkter i kategorien, så filteret ikke kun bruger første side.
+Projektstruktur
+Projektet er opdelt i HTML, CSS, JavaScript og billedfiler. I den senest gennemgåede projekt-ZIP ligger de centrale filer i samme mappe:
+BLUME_G5_DY_SITE/
+├── index.html
+├── productlist.html
+├── product.html
+├── basket.html
+├── style.css
+├── script.js
+├── api.js
+├── index.js
+├── productlist.js
+├── product.js
+├── basket.js
+├── reviews.js
+├── login.js
+├── images/
+└── LAES-MIG.md
 
-## Produktdetaljer
-Linket `product.html?id=1` giver id=1. product.js henter derefter
-https://dummyjson.com/products/1 og fylder HTML-elementerne med produktets felter.
-API-tekst indsættes med textContent, og kort bygges med createElement.
+Filbeskrivelser
 
-## Pris og funktioner
-Pris efter rabat beregnes som price * (1 - discountPercentage / 100).
-Beløbene vises med to decimaler. Produktdata indeholder ingen valuta; USD er valgt
-som demo-visning, uden omregning til danske kroner. Ret currency i api.js, hvis I
-har en anden valuta-aftale. En ændret valutasymbol er ikke en valutaomregning.
+- index.html – forsiden med produktsektioner og anmeldelser.
+- productlist.html – produktoversigt med kategori- og prisfiltrering.
+- product.html – detaljer om et produkt valgt via URL'en.
+- basket.html – viser og opdaterer indkøbskurven.
+- style.css – styrer design, farver, layout og responsive tilpasninger.
+- script.js – fælles interaktioner på websitet.
+- api.js – fælles API-kald, prisberegning, DOM-hjælpere og kurvefunktioner.
+- index.js – dynamiske produktkort og favoritter på forsiden.
+- productlist.js – hentning, filtrering, sortering og visning af produktkort.
+- product.js – produktdetaljer, antal, favoritter og tilføjelse til kurv.
+- basket.js – visning af kurvens varer, antal og subtotal.
+- reviews.js – henter og viser produktanmeldelser på forsiden.
+- login.js – åbner og lukker login-popup'en.
 
-Køns-, sæson- og størrelsesvalg er fjernet, da de felter ikke findes på disse produkter.
-Demoen viser produkter, kategorifilter, pris-sortering, lager og fejlbeskeder.
-Indkøbskurv og betaling er ikke implementeret. DummyJSON er et test-API.
-Layoutet bygger på den oprindelige skabelon. Farverne er tilpasset jeres palette; forsiden bruger en rosa/creme/lavendel-gradient.
+Hvordan koden fungerer
+Vi har opdelt JavaScript, så hver side har sin egen fil, mens fælles funktioner samles i api.js og script.js.
 
-Dokumentation: https://dummyjson.com/docs/products
+index.js
+Henter og viser produkter på forsiden. Produktkortene har billeder, navne, priser og mulighed for at lægge i kurv eller gemme favoritter. Favoritter gemmes i browserens localStorage.
 
-## Kontrol
-JavaScript-filerne er syntakskontrolleret med node --check.
-API-svarets struktur og felter er kontrolleret via det offentlige endpoint.
-En fuld browserkontrol er ikke udført.
+productlist.js
+Henter Beauty og Fragrances via getCategory() fra api.js. Kategorien læses fra URL'en med URLSearchParams. Funktionen render() filtrerer produkterne, sorterer efter pris ved behov og bygger produktkort i DOM'en.
 
+Flow:
 
-## Ny underkategori: Beauty / Natural
-Åbn produktlisten, og tryk på "Tilføj 5 Natural-demo-produkter".
-Knappen sender ét POST-kald til /products/add for hvert af fem fiktive produkter.
-Produkterne har category: "beauty" og vores eget felt subcategory: "natural".
-Det er en underkategori i hjemmesiden, ikke en ny kategori på DummyJSON-serveren.
+1. Siden indlæses.
+2. JavaScript læser kategori fra URL'en.
+3. Produktdata hentes fra REST API'et.
+4. Data filtreres efter den valgte kategori.
+5. Produktkort oprettes og indsættes i DOM'en.
+6. Brugeren kan åbne en detaljeside eller lægge en vare i kurven.
 
-DummyJSON simulerer POST og gemmer ikke produkterne. Efter fem vellykkede svar
-gemmes demo-data i localStorage i den aktuelle browser. De føjes til produktlisten,
-kan filtreres med Natural og har lokale detaljesider. Illustrationerne er pladsholdere.
-Lokale id'er natural-1 til natural-5 bruges, fordi simulerede server-id'er ikke
-kan bruges til at hente disse produkter igen. Server-id'et beholdes i apiId.
+Natural er stadig en filtermulighed, men de lokale Natural-demo-produkter er udkommenteret i api.js. Derfor er Natural-listen normalt tom i den aktuelle version.
 
-Genoprettelse erstatter de samme fem produkter uden dubletter. Ved fejl gemmes
-ingen ny liste; en tidligere liste bevares. localStorage er knyttet til browser og
-webadresse: produkterne deles ikke med andre brugere og forsvinder ved rydning af
-webstedsdata. Et fælles, permanent katalog kræver en backend/database.
-Der sendes ingen POST ved almindelig indlæsning af en side.
+product.js
+Læser produktets id fra URL'en med URLSearchParams og henter det tilsvarende produkt fra DummyJSON. Samme HTML-side kan derfor vise forskellige produkter. Siden viser blandt andet billede, titel, beskrivelse, pris, rabat, lagerstatus og antalvælger.
 
+basket.js
+Henter kurvens gemte varer fra localStorage, viser dem og beregner subtotalen. Brugeren kan ændre antal og fjerne varer.
 
-## Farvepalette
-Alle otte farver er defineret som CSS-variabler øverst i style.css.
-| Farve | Hex | Brug |
-| --- | --- | --- |
-| Petal Pink | #F3C6D5 | Header, footer, Beauty-kort og hero |
-| Powder Blush | #E9AFC2 | Knapper og kategorilabels |
-| Porcelain | #FFF9F4 | Baggrund og lys tekst på mørke knapper |
-| Matcha Cream | #D8DEC2 | Natural og lagerstatus |
-| Lavender Mist | #DCD3E8 | Fragrances og produktets informationsboks |
-| Cherry Lacquer | #8E2940 | Aktive knapper, CTA, rabat og overskrift |
-| Warm Cocoa | #4A3432 | Tekst og knapkanter |
-| Champagne Gold | #C9A66B | Fine kanter og detaljer |
+reviews.js
+Gennemgår produkternes anmeldelser fra API'et og viser dem i en sektion på forsiden med frem- og tilbageknapper.
 
-Mørk kakao bruges til tekst på pastelfarver; creme bruges på kirsebærrøde knapper.
-Produktbilleder og eksisterende logoer er billedfiler med deres egne farver.
+login.js
+Når brugeren klikker på profil-linket i headeren, vises en login-popup. Den kan lukkes med luk-knappen, klik uden for boksen eller Escape. Formularens indsendelse stoppes med preventDefault() og logger ikke brugeren ind. Der er ikke implementeret backend eller autentificering.
 
+Navngivning
+Vi har brugt beskrivende filnavne og primært camelCase til JavaScript-variabler og funktioner.
 
-## BLUME-logo
-Jeres originale logo er gemt som images/blume-logo.png og bruges i header og footer
-på alle tre sider. Header-logoet linker til forsiden. Brandnavn og sidetitler er
-opdateret til BLUME. Logoets format og farver bevares, og størrelsen tilpasses mobil.
+Eksempler på variabler: products, selection, currentProduct, quantity.
 
-Rabatmærker på produktkort og detaljesider bruger Warm Cocoa (#4A3432) som
-baggrund og Lavender Mist (#DCD3E8) som tekstfarve.
+Eksempler på funktioner: getCategory(), fetchJSON(), salePrice(), renderBasket() og openLogin().
+
+Kommentarer i koden
+
+Vi har tilføjet kommentarer ved API-kald, filtrering, DOM-manipulation og funktioner, hvor det hjælper forståelsen. Eksempel fra api.js:
+// Henter alle produkter fra en af de kategorier, som API'et understøtter.
+async function getCategory(category) {
+if (!["beauty", "fragrances"].includes(category)) throw new Error("Ukendt kategori");
+const data = await fetchJSON(`${API}/category/${category}?limit=0`);
+return data.products;
+}
+
+Data og JSON-struktur
+Vi bruger DummyJSON, som leverer produktdata i JSON-format. Et forenklet eksempel på de felter, vi bruger:
+{
+"id": 1,
+"title": "Produktnavn",
+"brand": "Brand",
+"category": "beauty",
+"price": 12.99,
+"discountPercentage": 10,
+"stock": 25,
+"thumbnail": "https://example.com/product.jpg"
+}
+
+Felter vi bruger: id identificerer produktet; title er produktnavnet; brand er mærket; category bruges til filtrering; price og discountPercentage bruges til prisberegning; stock viser lagerstatus; thumbnail bruges som produktbillede. Produktdata kan også indeholde description, images og reviews.
+
+API-adresser:
+
+- https://dummyjson.com/products/category/beauty?limit=0
+- https://dummyjson.com/products/category/fragrances?limit=0
+- https://dummyjson.com/products/{id}
+
+Prisen efter rabat beregnes med price \* (1 - discountPercentage / 100). USD bruges som visningsvaluta i projektet.
+
+Formular og validering
+Vi har en login-popup med felter til e-mail og adgangskode. Formularen bruger HTML-inputtyperne email og password samt autocomplete. Den aktuelle formular har ikke required på felterne, og den sender ikke data til en server. Den er derfor en demonstration af login-grænsefladen og ikke et færdigt login-system.
+
+Git og branches
+Dette afsnit udfyldes med gruppens faktiske Git-arbejde. Beskriv, hvilke branches I har brugt, hvordan I har fordelt opgaver, lavet commits, pushet til GitHub og flettet ændringer ind i main.
+
+Eksempler på branch-navne (udfyld med jeres egne): feature-forside-navn, feature-produktliste-navn, feature-kurv-navn.
+
+Bæredygtighed
+Projektet bruger HTML, CSS og JavaScript uden et tungt frontend-framework. Genbrug af fælles JavaScript-funktioner og brug af API-data reducerer behovet for at vedligeholde gentaget indhold. Billeder og andre ressourcer bør optimeres. Page weight under 250 KB er ikke dokumenteret som målt, så det bør testes, før I skriver, at kravet er opfyldt.
+
+Udfordringer undervejs
+
+- At hente produktdata korrekt og vise dem på produktlisten.
+- At sende produkt-id videre via URL'en til detaljesiden.
+- At undgå JavaScript-fejl efter udkommentering af getNaturalProducts().
+- At placere login-popup og indlæsning af login.js i den rigtige rækkefølge på siderne.
+- At tilpasse produktkortenes afstande, rabat-tags og afrundede knapper i CSS.
+
+Løsninger: Vi har brugt console.log()/browserkonsollen ved fejlfinding, URLSearchParams til URL-data, try/catch omkring asynkrone kald og CSS Grid til produktlayoutet. Natural-kaldet blev fjernet fra produktlistens aktive filtrering.
+
+Mulige forbedringer
+
+- Ægte login og kontooprettelse med sikker autentificering.
+- Søgefunktion til produkter.
+- Flere forbedringer af fejlbeskeder, loading states og tilgængelighed.
+- Aktivere eller erstatte Natural-demo-produkterne med en reel datakilde.
+- Måle og optimere sidernes page weight.
+- Gennemgå afstande mellem produkttekst og pris samt styling af produktknapper og discount-tags på tværs af skærmstørrelser.
+
+Gruppemedlemmer
+
+- [Navn 1]
+- [Navn 2]
+- [Navn 3]
+- [Navn 4]
+
+Sådan startes projektet
+Åbn projektmappen i VS Code, og start index.html med Live Server. Internetforbindelse er nødvendig for at hente produktdata og billeder fra API'et.
