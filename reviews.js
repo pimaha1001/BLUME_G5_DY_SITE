@@ -88,8 +88,10 @@
   async function loadReviews() {
     try {
       // Hent begge produktkategorier; await venter på svar fra API'et.
-      const beautyProducts = await getCategory("beauty");
-      const fragranceProducts = await getCategory("fragrances");
+      const [beautyProducts, fragranceProducts] = await Promise.all([
+        getCategory("beauty"),
+        getCategory("fragrances")
+      ]);
 
       // Gå gennem begge produktlister og gem hver anmeldelse sammen med produktet.
       for (const product of [...beautyProducts, ...fragranceProducts]) {

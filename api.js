@@ -22,12 +22,23 @@ function element(tag, text, className) {
   return node;
 }
 
+const categoryRequests = new Map();
+
 // Henter alle produkter fra en af de kategorier, som API'et understøtter.
 async function getCategory(category) {
   if (!["beauty", "fragrances"].includes(category)) throw new Error("Ukendt kategori");
   // limit=0 henter alle produkter i kategorien.
-  const data = await fetchJSON(`${API}/category/${category}?limit=0`);
-  return data.products;
+  // Genbrug samme igangværende/afsluttede anmodning på tværs af forside og anmeldelser.
+  if (!categoryRequests.has(category)) {
+    const request = fetchJSON(`${API}/category/${category}?limit=0`)
+      .then(data => data.products)
+      .catch(error => {
+        categoryRequests.delete(category); // Tillad nyt forsøg efter netværksfejl.
+        throw error;
+      });
+    categoryRequests.set(category, request);
+  }
+  return categoryRequests.get(category);
 }
 
 // Natural-demoen er midlertidigt deaktiveret. Dataene er bevaret som kommentar.
