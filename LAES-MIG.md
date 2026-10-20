@@ -109,7 +109,16 @@ Vi bruger DummyJSON, som leverer produktdata i JSON-format. Et forenklet eksempe
 "thumbnail": "https://example.com/product.jpg"
 }
 
-Felter vi bruger: id identificerer produktet; title er produktnavnet; brand er mærket; category bruges til filtrering; price og discountPercentage bruges til prisberegning; stock viser lagerstatus; thumbnail bruges som produktbillede. Produktdata kan også indeholde description, images og reviews.
+Felter vi bruger:
+
+- id identificerer produktet;
+- title er produktnavnet;
+- brand er mærket;
+- category bruges til filtrering;
+- price og discountPercentage bruges til prisberegning;
+- stock viser lagerstatus;
+- thumbnail bruges som produktbillede.
+- Produktdata kan også indeholde description, images og reviews.
 
 API-adresser:
 
@@ -123,9 +132,7 @@ Formular og validering
 Vi har en login-popup med felter til e-mail og adgangskode. Formularen bruger HTML-inputtyperne email og password samt autocomplete. Den aktuelle formular har ikke required på felterne, og den sender ikke data til en server. Den er derfor en demonstration af login-grænsefladen og ikke et færdigt login-system.
 
 Git og branches
-Dette afsnit udfyldes med gruppens faktiske Git-arbejde. Beskriv, hvilke branches I har brugt, hvordan I har fordelt opgaver, lavet commits, pushet til GitHub og flettet ændringer ind i main.
-
-Eksempler på branch-navne (udfyld med jeres egne): feature-forside-navn, feature-produktliste-navn, feature-kurv-navn.
+Da vi hovedesageligt har arbejdet udfra en kode fra tidligere siden vi lavede tidligere i forløbet, så har vi først lavet ændringer i den gamle side og så senere oprettet denne side og lagt den op på git, derefter har vi i starten brugt branches, men efterfølgende har vi ikke benyttet det så meget, mest fordi nogle af gruppens medlemmer ikke var så stærke i det og hellere ville lave koden på deres egen computer til deres enkelte sider og så senere samle hele kode i fælleskab. Derfor har vi også lave ændringer undervejs når vi har samlet koden. For at sikre at vi kan gå tilbage i koden, hvis der skete en fejl, så har vi gemt et kopi at koden manuelt, så vi har alle flere versioner liggende lokalt. Vi har skiftet mellem at lave commits ved små ændringer og ved større ændringer, men der har ikke været en fast strategi.
 
 Bæredygtighed
 Projektet bruger HTML, CSS og JavaScript uden et tungt frontend-framework. Genbrug af fælles JavaScript-funktioner og brug af API-data reducerer behovet for at vedligeholde gentaget indhold. Billeder og andre ressourcer bør optimeres. Page weight under 250 KB er ikke dokumenteret som målt, så det bør testes, før I skriver, at kravet er opfyldt.

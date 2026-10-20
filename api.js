@@ -33,11 +33,11 @@ async function getCategory(category) {
 // Natural-demoen er midlertidigt deaktiveret. Dataene er bevaret som kommentar.
 /*
 const naturalExamples = [
-  { title: "Natural Aloe Vera Gel", description: "Fiktivt demo-produkt: aloe vera-gel til hudpleje.", price: 12.99, stock: 30, image: "images/NaturalAloeVeraGel.jpg" },
-  { title: "Natural Jojoba Face Oil", description: "Fiktivt demo-produkt: ansigtsolie med jojoba.", price: 18.99, stock: 25, image: "images/NaturalJojobaFaceOil.jpg" },
-  { title: "Natural Shea Body Butter", description: "Fiktivt demo-produkt: body butter med sheasmør.", price: 15.99, stock: 20, image: "images/NaturalSheaBodyButter.jpg" },
-  { title: "Natural Coconut Lip Balm", description: "Fiktivt demo-produkt: læbepomade med kokosolie.", price: 4.99, stock: 50, image: "images/NaturalCoconutLipBalm.jpg" },
-  { title: "Natural Oat Face Cleanser", description: "Fiktivt demo-produkt: ansigtsrens med havre.", price: 11.99, stock: 35, image: "images/OatFaceCleanser.jpg" },
+  { title: "Natural Aloe Vera Gel", description: "Fiktivt demo-produkt: aloe vera-gel til hudpleje.", price: 12.99, stock: 30, image: "images/NaturalAloeVeraGel.webp" },
+  { title: "Natural Jojoba Face Oil", description: "Fiktivt demo-produkt: ansigtsolie med jojoba.", price: 18.99, stock: 25, image: "images/NaturalJojobaFaceOil.webp" },
+  { title: "Natural Shea Body Butter", description: "Fiktivt demo-produkt: body butter med sheasmør.", price: 15.99, stock: 20, image: "images/NaturalSheaBodyButter.webp" },
+  { title: "Natural Coconut Lip Balm", description: "Fiktivt demo-produkt: læbepomade med kokosolie.", price: 4.99, stock: 50, image: "images/NaturalCoconutLipBalm.webp" },
+  { title: "Natural Oat Face Cleanser", description: "Fiktivt demo-produkt: ansigtsrens med havre.", price: 11.99, stock: 35, image: "images/OatFaceCleanser.webp" },
 ].map(({ image, ...product }, index) => ({ ...product, id: `natural-${index + 1}`, category: "beauty", subcategory: "natural", brand: "Natural Demo", tags: ["beauty", "natural"], discountPercentage: 0, thumbnail: image, images: [image] }));
 
 function getNaturalProducts() {
